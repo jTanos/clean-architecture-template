@@ -1,4 +1,5 @@
 using CleanArchitectureTemplate.Core.Contracts.EntitiesValidators;
+using CleanArchitectureTemplate.Core.Contracts.Log;
 using CleanArchitectureTemplate.Core.Contracts.Repositories;
 using CleanArchitectureTemplate.Core.Contracts.Repositories.SqlEngineSpecifications;
 using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Create;
@@ -9,12 +10,14 @@ using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Ge
 using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Update;
 using CleanArchitectureTemplate.Core.EntitiesValidation;
 using CleanArchitectureTemplate.Core.UseCases.Cruds.FooCrudUseCases;
+using CleanArchitectureTemplate.Infrastructure.Log;
 using CleanArchitectureTemplate.Infrastructure.Repositories.DapperRepositories;
 using CleanArchitectureTemplate.Infrastructure.Repositories.SqlEngineSpecifications;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace CleanArchitectureTemplate.Api
@@ -31,24 +34,47 @@ namespace CleanArchitectureTemplate.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region DB Engine
+
             // TODO get from config
             const string connectionString = "";
 
             services.AddTransient<ISqlServerEngineSpecifications>(x => new SqlServerEngineSpecifications(connectionString));
 
-            // Repositories
+            #endregion
+
+            #region Logger
+
+            // TODO get from config
+
+            const string coreLogDirectory = "";
+
+            services.AddTransient<ICoreLogger>(x => new NLogCoreLogger(coreLogDirectory));
+
+            #endregion
+
+            #region Repositories
+
             services.AddTransient<IFooRepository, FooSqlServerDapperRepository>();
 
-            // Entities Validators
+            #endregion
+
+            #region Entities Validators
+
             services.AddTransient<IFooValidator, FooValidator>();
 
-            // UseCases
+            #endregion
+
+            #region UseCases
+
             services.AddTransient<ICreateFooUseCase, CreateFooUseCase>();
             services.AddTransient<IUpdateFooUseCase, UpdateFooUseCase>();
             services.AddTransient<IDeleteFooUseCase, DeleteFooUseCase>();
             services.AddTransient<IGetFooByNameUseCase, GetFooByNameUseCase>();
             services.AddTransient<IGetFooByIdUseCase, GetFooByIdUseCase>();
             services.AddTransient<IGetAllFoosUseCase, GetAllFoosUseCase>();
+
+            #endregion
 
             services.AddControllers(
                 options => options.SuppressAsyncSuffixInActionNames = false
