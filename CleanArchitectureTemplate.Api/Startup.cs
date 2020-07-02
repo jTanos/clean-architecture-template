@@ -1,5 +1,5 @@
 using CleanArchitectureTemplate.Core.Contracts.EntitiesValidators;
-using CleanArchitectureTemplate.Core.Contracts.Log;
+using CleanArchitectureTemplate.Core.Contracts.Logger;
 using CleanArchitectureTemplate.Core.Contracts.Repositories;
 using CleanArchitectureTemplate.Core.Contracts.Repositories.SqlEngineSpecifications;
 using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Create;
@@ -10,7 +10,7 @@ using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Ge
 using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Update;
 using CleanArchitectureTemplate.Core.EntitiesValidation;
 using CleanArchitectureTemplate.Core.UseCases.Cruds.FooCrudUseCases;
-using CleanArchitectureTemplate.Infrastructure.Log;
+using CleanArchitectureTemplate.Infrastructure.Logger;
 using CleanArchitectureTemplate.Infrastructure.Repositories.DapperRepositories;
 using CleanArchitectureTemplate.Infrastructure.Repositories.SqlEngineSpecifications;
 using Microsoft.AspNetCore.Builder;

@@ -1,4 +1,4 @@
-﻿using CleanArchitectureTemplate.Core.Contracts.Log;
+﻿using CleanArchitectureTemplate.Core.Contracts.Logger;
 using CleanArchitectureTemplate.Core.Contracts.Repositories;
 using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Delete;
 using CleanArchitectureTemplate.Core.Entities;
