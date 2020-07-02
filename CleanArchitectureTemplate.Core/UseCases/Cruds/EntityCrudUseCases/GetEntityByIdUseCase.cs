@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CleanArchitectureTemplate.Core.Contracts.Entities;
-using CleanArchitectureTemplate.Core.Contracts.Log;
+using CleanArchitectureTemplate.Core.Contracts.Logger;
 using CleanArchitectureTemplate.Core.Contracts.Repositories;
 using CleanArchitectureTemplate.Core.Contracts.UseCases;
 using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.EntityCrudUseCases.GetById;

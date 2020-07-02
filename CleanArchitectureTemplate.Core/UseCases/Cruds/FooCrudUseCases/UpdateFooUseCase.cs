@@ -1,5 +1,5 @@
 ﻿using CleanArchitectureTemplate.Core.Contracts.EntitiesValidators;
-using CleanArchitectureTemplate.Core.Contracts.Log;
+using CleanArchitectureTemplate.Core.Contracts.Logger;
 using CleanArchitectureTemplate.Core.Contracts.Repositories;
 using CleanArchitectureTemplate.Core.Contracts.UseCases.Cruds.FooCrudUseCases.Update;
 using CleanArchitectureTemplate.Core.Entities;
